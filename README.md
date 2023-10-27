@@ -32,7 +32,7 @@
 
 ## Usage
 
-Here is an example to run MOON on CIFAR-10 with a simple CNN:
+Here is an example to run FedCSPC on CIFAR-10 with a simple CNN:
 ```
 python main_CSPC.py --dataset=cifar10     --model=simple-cnn     --alg=CSPC     --lr=0.01        --epochs=10     --comm_round=100     --n_parties=10     --partition=noniid 
     --beta=0.5     --logdir='./logs/'     --datadir='./data/' 
