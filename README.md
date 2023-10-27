@@ -1,6 +1,12 @@
 # FedCSPC
 (ACM MM'23) Cross-Silo Prototypical Calibration for Federated Learning with Non-IID Data
 
+## Overview
+This paper presents a novel Cross-Silo Prototypical Calibration method, termed FedCSPC. As illustrated in Figure \ref{fig:mg}, compared with conventional federated learning method, the proposed FedCSPC performs prototypical calibration, which can map representations from different feature spaces to a unified space while maintaining clear decision boundaries. Specifically, FedCSPC has two main modules: the Data Prototypical Modeling (DPM) module and the Cross-Silo Prototypical Calibration (CSPC) module. To promote the alignment of features across different spaces, the DPM module employs clustering to model the data patterns and provides prototypical information to the server to assist with model calibration. Subsequently, to enhance the robustness of calibration, FedCSPC develops an augmented contrastive learning method in the CSPC module, which increases sample diversity by positive mixing and  hard negative mining, and implements contrastive learning to achieve effective alignment of cross-source features. Meanwhile, the calibrated prototypes form a knowledge base in a unified space and generate knowledge-based class predictions to reduce errors. Notably, the CSPC module is a highly adaptable tool that easily integrates into various algorithms. As observed, FedCSPC is capable of alleviating the feature gap between data sources, thus significantly improving the generalization ability. 
+![_](./framework.png)
+
+
+
 ## Dependencies
 * PyTorch >= 1.0.0
 * torchvision >= 0.2.1
