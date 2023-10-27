@@ -91,9 +91,9 @@ def init_nets(net_configs, n_parties, args, n_classes, device='cuda:0'):
             net.to(device)
             nets[net_i] = net
             if args.model == 'simple-cnn':    
-                dnn = DNN_v5(input_dim=84, hidden_dims=[84, 256], n_classes=n_classes).to(device)
+                dnn = DNN(input_dim=84, hidden_dims=[84, 256], n_classes=n_classes).to(device)
             elif args.model == 'resnet18':    
-                dnn = DNN_v5(input_dim=512, hidden_dims=[512, 256], n_classes=n_classes).to(device)
+                dnn = DNN(input_dim=512, hidden_dims=[512, 256], n_classes=n_classes).to(device)
         else:        
 #             ipdb.set_trace()
             if args.dataset == 'vireo172' or args.dataset == 'food101':
@@ -102,7 +102,7 @@ def init_nets(net_configs, n_parties, args, n_classes, device='cuda:0'):
             else:
                 net = resnet18(args.dataset, kernel_size=3, pretrained=False)   
                 nets[net_i] = net
-            dnn = DNN_v3(input_dim=512, hidden_dims=[512, 512], n_classes=n_classes).to(device)
+            dnn = DNN(input_dim=512, hidden_dims=[512, 512], n_classes=n_classes).to(device)
     model_meta_data = []
     layer_type = []
     for (k, v) in nets[0].state_dict().items():
